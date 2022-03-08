@@ -10,7 +10,6 @@ from click import launch
 import streamlit as st
 import numpy as np
 import pandas as pd
-import numpy_financial as npf
 import pathlib
 import time
 #import win32com.client as win32
