@@ -1,0 +1,13 @@
+streamlit
+numpy
+pandas
+numpy_financial
+openpyxl
+xlsxwriter
+datetime
+statsmodels
+sklearn
+secure-smtplib
+pillow
+dataframe-image
+FPDF
