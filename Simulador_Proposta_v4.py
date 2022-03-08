@@ -19,13 +19,10 @@ import time
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-import mysql.connector 
-import sqlalchemy   
 import dataframe_image as dfi
 from fpdf import FPDF 
 from datetime import datetime
 from datetime import date
-import os
 
 
 df = pd.read_excel("Base_Preços.xlsx")
