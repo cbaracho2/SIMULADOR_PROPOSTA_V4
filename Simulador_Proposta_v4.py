@@ -572,8 +572,9 @@ else:
         BASE_CALCULO.fillna(value=0, inplace=True)
         st.dataframe(BASE_CALCULO.style.format(subset=["SINAL","MENSAIS","MENSAIS_2","MENSAIS_POS","SEMESTRAIS","ANUAIS", "FINANC","EV_OBRA","EV_OBRA_1","TOTAL"], formatter="{:.2f}"))
         
-        Gerar_data_imagem = dfi.export(RESULTADO, 'Solicitar_Aprovacao.png')
-
+        Gerar_data_imagem = dfi.export(RESULTADO, 'Solicitar_Aprovacao.png',chrome_path=None)
+        RESULTADO.to_excel("Resultado_001.xlsx")
+        
         add_image(Imagem_data,imagem_Logo,LISTA_EMPREENDIMENTOS,LISTA_BLOCOS,LISTA_UNIDADES,resposta_proposta())  
         
     if botao_003:
