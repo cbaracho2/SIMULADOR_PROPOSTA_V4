@@ -575,7 +575,7 @@ else:
         #Gerar_data_imagem = dfi.export(RESULTADO, 'Solicitar_Aprovacao.png')
         #RESULTADO.to_excel("Resultado_001.xlsx")
         
-        add_image(Imagem_data,imagem_Logo,LISTA_EMPREENDIMENTOS,LISTA_BLOCOS,LISTA_UNIDADES,resposta_proposta())  
+        #add_image(Imagem_data,imagem_Logo,LISTA_EMPREENDIMENTOS,LISTA_BLOCOS,LISTA_UNIDADES,resposta_proposta())  
         
     if botao_003:
         enviar_email_002(CIDADES, LISTA_EMPREENDIMENTOS,LISTA_BLOCOS,LISTA_UNIDADES)
