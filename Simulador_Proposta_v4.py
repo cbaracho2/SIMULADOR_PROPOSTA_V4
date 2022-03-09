@@ -71,7 +71,7 @@ def add_image(EMPREEND,TORRE,UNID, situacao):
     pdf = FPDF() 
     pdf.add_page() 
     pdf.set_font('Arial','',18)
-    pdf.image(https://github.com//cbaracho2//SIMULADOR_PROPOSTA_V4//blob//main//logo7lm.png?raw=true, x = 10 , y = 5 , w = 40) 
+    pdf.image("logo7lm.png", x = 10 , y = 5 , w = 40) 
     pdf.cell(195,40,'7LM | LIBERAÇÃO DE PROPOSTA | ALÇADA DIRETORIA' ,0,1,'C')
     pdf.set_font ( "Arial" , size=12) 
     pdf.set_text_color(0,102,153)
