@@ -12,10 +12,6 @@ import numpy as np
 import pandas as pd
 import pathlib
 import time
-#import win32com.client as win32
-#from oauth2client.service_account import ServiceAccountCredentials
-#from email.mime.multipart import MIMEMultipart
-#from email.mime.text import MIMEText
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -68,7 +64,7 @@ def enviar_email_002(cidade,empreendimento,bloco,unidade):
         st.write("Opa! Algo saiu errado.")
         
     
-def add_image(caminho_da_imagem,logo,EMPREEND,TORRE,UNID, situacao):
+def add_image(logo,EMPREEND,TORRE,UNID, situacao):
     y=190
     x=125
     ASSINATURA = "CIENTE DIRETORIA [   ]"
@@ -82,7 +78,7 @@ def add_image(caminho_da_imagem,logo,EMPREEND,TORRE,UNID, situacao):
     pdf.text(10 , 40 , f"EMPREENDIMENTO: {EMPREEND}")
     pdf.text(10 , 45 ,  f"BLOCO: {TORRE}")
     pdf.text(10 , 50 ,  f"UNIDADE: {UNID}") 
-    pdf.image(caminho_da_imagem, x = 20 , y = 90 , w = 165 )
+    #pdf.image(caminho_da_imagem, x = 20 , y = 90 , w = 165 )
     if situacao == "APROVADO":
         pdf.set_font ( "Arial" , size=14) 
         pdf.set_text_color(26,188,41)
@@ -552,13 +548,13 @@ else:
 
         BASE_CALCULO.fillna(value=0, inplace=True)
         st.dataframe(BASE_CALCULO.style.format(subset=["SINAL","MENSAIS","MENSAIS_2","MENSAIS_POS","SEMESTRAIS","ANUAIS", "FINANC","EV_OBRA","EV_OBRA_1","TOTAL"], formatter="{:.2f}"))
-        
+        add_image(imagem_Logo, LISTA_EMPREENDIMENTOS,LISTA_BLOCOS,LISTA_UNIDADES,resposta_proposta())
          
         
     if botao_003:
         enviar_email_002(CIDADES, LISTA_EMPREENDIMENTOS,LISTA_BLOCOS,LISTA_UNIDADES)
         st.write("Arquivo Gerado!")
-        add_image(Imagem_data,imagem_Logo,LISTA_EMPREENDIMENTOS,LISTA_BLOCOS,LISTA_UNIDADES,resposta_proposta())   
+        
 
         
         
