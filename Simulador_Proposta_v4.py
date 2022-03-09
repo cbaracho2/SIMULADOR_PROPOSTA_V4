@@ -64,15 +64,15 @@ def enviar_email_002(cidade,empreendimento,bloco,unidade):
         st.write("Opa! Algo saiu errado.")
         
     
-def add_image(logo,EMPREEND,TORRE,UNID, situacao):
+def add_image(EMPREEND,TORRE,UNID, situacao):
     y=190
     x=125
     ASSINATURA = "CIENTE DIRETORIA [   ]"
     pdf = FPDF() 
     pdf.add_page() 
     pdf.set_font('Arial','',18)
-    pdf.image(logo, x = 10 , y = 5 , w = 40 ) 
-    pdf.cell(195,40,'7LM | LIBERAÇÃO DE PROPOSTA | ALÇADA DIRETORIA' ,0,1,'C')#fill=True
+    pdf.image(https://github.com/cbaracho2/SIMULADOR_PROPOSTA_V4/blob/main/logo7lm.png?raw=true, x = 10 , y = 5 , w = 40 ) 
+    pdf.cell(195,40,'7LM | LIBERAÇÃO DE PROPOSTA | ALÇADA DIRETORIA' ,0,1,'C')
     pdf.set_font ( "Arial" , size=12) 
     pdf.set_text_color(0,102,153)
     pdf.text(10 , 40 , f"EMPREENDIMENTO: {EMPREEND}")
