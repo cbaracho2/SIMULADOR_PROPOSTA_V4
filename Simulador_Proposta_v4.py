@@ -27,8 +27,8 @@ from datetime import date
 
 df = pd.read_excel("Base_Preços.xlsx")
 
-imagem_Logo = "C:\\Users\\carlos.baracho\\Desktop\\Simulador_cef\\logo7lm.png"
-Imagem_data = "C:\\Users\\carlos.baracho\\Desktop\\Projeto_Simulador_de_Propostas\\Solicitar_Aprovacao.png"
+imagem_Logo = "https://github.com/cbaracho2/SIMULADOR_PROPOSTA_V4/blob/main/logo7lm.png?raw=true"
+Imagem_data = "https://github.com/cbaracho2/SIMULADOR_PROPOSTA_V4/blob/main/Solicitar_Aprovacao.png?raw=true"
 
 image = "https://grupoimerge.com.br/wp-content/uploads/2020/06/logo-7lm.svg"
 st.sidebar.image(image,use_column_width=False, width=None)
@@ -36,35 +36,16 @@ st.title("Simulador do Plano de Pgto | 7LM")
 st.subheader('Construção do plano de pagamento:')
 botao_003 = st.button("Solicitar Liberação da Proposta")
 
-
-
-def enviar_email():
-    # criar a integração com o outlook
-    outlook = win32.Dispatch('outlook.application')
-
-    # criar um email
-    email = outlook.CreateItem(0)
-
-    # configurar as informações do seu e-mail
-    email.To = "comercial@7lm.com.br; marco@7lm.com.br"
-    email.Subject = "7LM | PLANO DE PGTO | LIBERAÇÃO DO PLANO"
-    email.HTMLBody = f"""
-    <p>Segue plano de pagamento para aprovação.</p>
-    """
-    anexo = "C:\\Users\carlos.baracho\Desktop\Simulador_cef\MySnapshot.jpg"
-    email.Attachments.Add(anexo)
-    email.Send()
-    
-    
+   
 def enviar_email_002(cidade,empreendimento,bloco,unidade):
     try:
         username = "solicitarliberacaodaproposta@gmail.com"
         password = "G@fisa2014"
         mail_from = "comercial@7lm.com.br"
-        mail_to = "comercial@7lm.com.br;marco@7lm.com.br;trainee1@7lm.com.br"
+        mail_to = "comercial@7lm.com.br"
         mail_subject = f"7LM | SOLICITAÇÃO DE APROVAÇÃO | {cidade} | {empreendimento} | {bloco} | {unidade}"
         mail_body = "Segue proposta para liberação."
-        arquivo ="Solicitação_Proposta.pdf"#"C:\\Users\\carlos.baracho\\Desktop\\Projeto_Simulador_de_Propostas\\espaco_simulador\\add_image.pdf"
+        arquivo ="Solicitação_Proposta.pdf"
 
         mimemsg = MIMEMultipart()
         mimemsg['From']=mail_from
@@ -572,10 +553,7 @@ else:
         BASE_CALCULO.fillna(value=0, inplace=True)
         st.dataframe(BASE_CALCULO.style.format(subset=["SINAL","MENSAIS","MENSAIS_2","MENSAIS_POS","SEMESTRAIS","ANUAIS", "FINANC","EV_OBRA","EV_OBRA_1","TOTAL"], formatter="{:.2f}"))
         
-        #Gerar_data_imagem = dfi.export(RESULTADO, 'Solicitar_Aprovacao.png')
-        #RESULTADO.to_excel("Resultado_001.xlsx")
-        
-        #add_image(Imagem_data,imagem_Logo,LISTA_EMPREENDIMENTOS,LISTA_BLOCOS,LISTA_UNIDADES,resposta_proposta())  
+        add_image(Imagem_data,imagem_Logo,LISTA_EMPREENDIMENTOS,LISTA_BLOCOS,LISTA_UNIDADES,resposta_proposta())  
         
     if botao_003:
         enviar_email_002(CIDADES, LISTA_EMPREENDIMENTOS,LISTA_BLOCOS,LISTA_UNIDADES)
