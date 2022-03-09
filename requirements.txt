@@ -9,5 +9,5 @@ statsmodels
 sklearn
 secure-smtplib
 pillow
-dataframe-image
+dataframe_image
 FPDF
